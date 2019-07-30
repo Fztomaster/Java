@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans           
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="applicationContext-*.xml" />
+	
+	<bean id="person" name="personName1, personName2"
+		class="com.jack.spring.Person">
+		<constructor-arg name="name" value="jack"></constructor-arg>
+		<constructor-arg name="age" value="18"></constructor-arg>
+		<!-- 
+			ref: 引用id为的food bean对象
+		 -->
+		<constructor-arg name="food" ref="food"></constructor-arg>
+	</bean>
+	<bean id="food" class="com.jack.spring.Food"></bean>
+	<!-- 
+		alias: 别名
+		name: 对应bean的id
+	 -->
+	<alias name="person" alias="personAlias" />
+</beans>
